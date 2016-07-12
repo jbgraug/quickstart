@@ -1,3 +1,4 @@
 <h1> Todo List</h1>
 <small>by {{name}}</small>
-<jb-todo-list></jb-todo-list>
+<jb-todo-list (selectedTodo)="onSelected($event)"></jb-todo-list>
+<jb-todo [todo]="selectedTodo"></jb-todo>
