@@ -1,5 +1,6 @@
 import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { TodoService } from '../services';
+import { Todo } from '../models/todo';
 
 @Component({
     moduleId: module.id,
@@ -11,7 +12,7 @@ import { TodoService } from '../services';
         <th>label</th>
     </tr>
     <tr *ngFor="let t of todos" 
-        (click)="select(t)" 
+        (mouseover)="select(t)" 
         [ngClass]="{'row-selected':(t.id===selectedElement)}">
         
         <td>{{t.id}}</td>
@@ -20,12 +21,12 @@ import { TodoService } from '../services';
 </table>
     `
     //templateUrl: 'name.component.html'
-    ,providers : [TodoService]
+  //  , providers : [TodoService]
 })
 export class TodoListComponent implements OnInit {
-    private todos:[any];
-    @Output() selectedTodo: EventEmitter<any> = new EventEmitter();
-    selectedElement:number;
+    private todos: Todo[];
+    @Output() selectedTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
+    selectedElement: number;
 
     constructor(private todoSvc: TodoService) { }
 
@@ -33,8 +34,8 @@ export class TodoListComponent implements OnInit {
         this.todos = this.todoSvc.getAll();
     }
 
-    select(todo:any) {
-        this.selectedElement=todo.id;
+    select(todo: Todo) {
+        this.selectedElement = todo.id;
         this.selectedTodo.emit(todo);
     }
 
