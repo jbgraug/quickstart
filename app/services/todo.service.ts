@@ -27,7 +27,8 @@ export class TodoService {
             { id: 55, label: 'eat something!' },
             { id: 63, label: 'go to the movies' },
             { id: 64, label: 'do nothing' },
-            { id: 65, label: 'be quiet!' }
+            { id: 65, label: 'be quiet!' },
+            { id: 66, label: 'keep coding...' }
         ];
     }
 }

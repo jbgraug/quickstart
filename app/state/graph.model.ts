@@ -11,6 +11,10 @@ export class Graph {
         }
     }
 
+    public getStates(): Array<State> {
+        return this.states;
+    }
+
     public add(state: State, isInitial: boolean = false) {
         this.states.push(state);
         if (isInitial) {
@@ -32,7 +36,7 @@ export class Graph {
             let edge = this.current.getEdge(edgeName)
             if (edge) {
                 this.setNext(edge.getDest())
-                this.current.doSomething();
+                this.current.doAction();
             } else {
                 console.log(`Edge: ${edgeName} not found in State:${this.current.getName()} \n no action taken!`);
             }
@@ -40,7 +44,7 @@ export class Graph {
             let edge = this.initial.getEdge(edgeName)
             if (edge) {
                 this.setNext(edge.getDest())
-                this.current.doSomething();
+                this.current.doAction();
             }
         } else {
             console.error('There is no initial or current state!')

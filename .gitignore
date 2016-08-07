@@ -1,4 +1,6 @@
 .idea
+.vscode
+npm-debug.log
 typings/**
 node_modules
 jspm_packages

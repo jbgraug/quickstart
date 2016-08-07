@@ -6,17 +6,25 @@ import { PagerComponent } from './pager.component';
     moduleId: module.id,
     selector: 'page',
     template: `
-     <div [ngStyle]="{background:'red'}">
+     <div class="page" [hidden]="!active">
         <ng-content></ng-content>
      </div>   
-    `
+    `,
+    styles: [`
+        .page {
+            border: 1px solid lightblue;
+            
+        }
+    `]
 })
 export class PageComponent implements OnInit {
+
+    public active = false;
     constructor(private pager: PagerComponent) {
     }
 
     ngOnInit() {
-        this.pager.addPage(this)
+        this.pager.addPage(this);
     }
 
 }

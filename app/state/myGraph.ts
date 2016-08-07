@@ -5,9 +5,9 @@ import { Edge } from './edge.model';
 export class MyGraph {
     public doGraph() {
 
-        var s1 = new State('s1');
+        var s1 = new State('s1',null,()=>console.log('executed on doAction s1'));
         var s2 = new State('s2')
-        var s3 = new State('s3');
+        var s3 = new State('s3',null,()=>console.log('executed on doAction s3'));
         s1.addEdge(new Edge('e1', s2));
         s1.addEdge(new Edge('e1', s2));
         s2.addEdge(new Edge('e2', s3));

@@ -13,7 +13,7 @@ import { Todo } from '../models/todo';
         <th>label</th>
     </tr>
     <tr *ngFor="let t of todos" 
-        (mouseover)="select(t)" 
+        (click)="select(t)" 
         [ngClass]="{'row-selected':(t.id===selectedElement)}">
         
         <td>{{t.id}}</td>

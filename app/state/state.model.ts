@@ -4,15 +4,20 @@ export class State {
     constructor(
         private name: string,
        // private initial: boolean = false,
-        private edges?: Array<Edge>
+        private edges?: Array<Edge>,
+        private action?: Function
     ) {
         if (!edges) {
             this.edges = [];
         }
     }
 
-    public doSomething(): void {
-        console.log(`${this.name}: i'm doing something`);
+    public doAction(): void {
+        if (this.action) {
+            this.action();
+        } else {
+            console.log(`${this.name}: no action set`);
+        }
     }
 
     public getName(): string {

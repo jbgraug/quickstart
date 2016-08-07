@@ -48,6 +48,9 @@ nav a {
 nav a:visited, a:link {
   color: #607D8B;
 }
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active {
+  outline: 0;
+}
 nav a:hover {
   color: #039be5;
   background-color: #CFD8DC;
@@ -178,5 +181,5 @@ table tr:hover td {
     padding: 16px;
     display: inline-block;
     box-shadow: 0 2px 2px rgba(0,0,0,0.24),0 0 2px rgba(0,0,0,0.12);
-    margin: 0 0 16px 0;
+    margin: 6px 6px;
 }
