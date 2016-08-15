@@ -1,6 +1,8 @@
 import { Component, OnInit , Input} from '@angular/core';
 import { Todo } from '../models/todo';
 
+
+
 @Component({
     moduleId: module.id,
     selector: 'jb-todo',
@@ -16,6 +18,7 @@ import { Todo } from '../models/todo';
     </div>
     `
 })
+
 export class TodoComponent implements OnInit {
     @Input() todo: Todo;
     private edit: boolean = false;
