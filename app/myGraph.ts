@@ -1,13 +1,13 @@
-import { Graph } from './graph.model';
-import { State } from './state.model';
-import { Edge } from './edge.model';
+import { Graph } from './models/state/graph.model';
+import { State } from './models/state/state.model';
+import { Edge } from './models/state/edge.model';
 
 export class MyGraph {
     public doGraph() {
 
-        var s1 = new State('home',null,()=>console.log('executed on doAction home'));
+        var s1 = new State('home', null, () => console.log('executed on doAction home'));
         var s2 = new State('products')
-        var s3 = new State('mortage',null,()=>console.log('executed on doAction motage'));
+        var s3 = new State('mortage', null, () => console.log('executed on doAction motage'));
         s1.addEdge(new Edge('to_products', s2));
         s1.addEdge(new Edge('to_products', s2));
         s2.addEdge(new Edge('to_mortage', s3));
@@ -18,13 +18,15 @@ export class MyGraph {
 
         let graph = new Graph([s1, s2, s3]);
         graph.setInitialState(s1);
+        // graph.start();
         console.log(`outcome state: ${graph.gotoNext('to_products').getName()}`);
         console.log(`outcome state: ${graph.gotoNext('to_products').getName()}`);
         console.log(`outcome state: ${graph.gotoNext('to_home').getName()}`);
         console.log(`outcome state: ${graph.gotoNext('to_home').getName()}`);
         console.log(`outcome state: ${graph.gotoNext('to_products').getName()}`);
         console.log(`outcome state: ${graph.gotoNext('to_mortage').getName()}`);
-         console.log(`outcome state: ${graph.gotoNext('to_home').getName()}`);
+        console.log(`outcome state: ${graph.gotoNext('to_home').getName()}`);
+        graph.printHistory();
         return graph;
     }
 }

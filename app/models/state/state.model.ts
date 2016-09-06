@@ -1,6 +1,8 @@
 import {Edge} from './edge.model';
 
 export class State {
+    private previous: State;
+
     constructor(
         private name: string,
         private edges?: Array<Edge>,
@@ -10,6 +12,14 @@ export class State {
             this.edges = [];
         }
     }
+
+    // public setPrevious(s: State) {
+    //     this.previous = s;
+    // }
+
+    // public getPrevious(): State {
+    //     return this.previous;
+    // }
 
     public doAction(): void {
         if (this.action) {
@@ -45,7 +55,8 @@ export class State {
                 if (e.getName() === name) {
                     edge = e;
                     return true;
-                }})
+                }
+            })
         return edge;
     }
 
