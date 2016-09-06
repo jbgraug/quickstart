@@ -33,7 +33,7 @@ export class Graph {
 
     public gotoNext(edgeName: string): State {
         if (this.current) {
-            let edge = this.current.getEdge(edgeName)
+            let edge = this.current.getEdgeByName(edgeName)
             if (edge) {
                 this.setNext(edge.getDest())
                 this.current.doAction();
@@ -41,7 +41,7 @@ export class Graph {
                 console.log(`Edge: ${edgeName} not found in State:${this.current.getName()} \n no action taken!`);
             }
         } else if (this.initial) {
-            let edge = this.initial.getEdge(edgeName)
+            let edge = this.initial.getEdgeByName(edgeName)
             if (edge) {
                 this.setNext(edge.getDest())
                 this.current.doAction();
