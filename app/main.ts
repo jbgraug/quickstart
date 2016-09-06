@@ -4,7 +4,7 @@
 // import { AppComponent } from './app.component';
 // import { TodoService } from './services';
 
-import {MyGraph} from './models/state/myGraph';
+import {MyGraph} from './myGraph';
 
 
 // bootstrap(AppComponent,[
