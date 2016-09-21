@@ -46,7 +46,7 @@ import { Menu} from './composite/menu';
             </div>
      </div>
     `,
-    directives: [TodoListComponent, TodoComponent, Tabs, Tab, PageComponent, PagerComponent]
+  //  directives: [TodoListComponent, TodoComponent, Tabs, Tab, PageComponent, PagerComponent]
 })
 export class AppComponent implements OnInit {
     private name: string = 'Juan';

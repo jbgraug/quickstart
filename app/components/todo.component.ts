@@ -4,7 +4,6 @@ import { Todo } from '../models/todo';
 
 
 @Component({
-    moduleId: module.id,
     selector: 'jb-todo',
     template: `
     <div class="todo">

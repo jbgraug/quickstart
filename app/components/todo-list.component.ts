@@ -2,9 +2,8 @@ import { Component, OnInit, Output, EventEmitter} from '@angular/core';
 import { TodoService } from '../services';
 import { Todo } from '../models/todo';
 
-  
+
 @Component({
-    moduleId: module.id,
     selector: 'jb-todo-list',
     template: `
 <table>
@@ -21,8 +20,6 @@ import { Todo } from '../models/todo';
     </tr>
 </table>
     `
-    , directives: []
-
 })
 export class TodoListComponent implements OnInit {
 

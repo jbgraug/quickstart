@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { PagerComponent } from './pager.component';
 
 @Component({
-    moduleId: module.id,
     selector: 'page',
     template: `
      <div class="page" [hidden]="!active">

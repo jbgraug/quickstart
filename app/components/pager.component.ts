@@ -3,7 +3,6 @@ import { Component, OnInit, Input } from '@angular/core';
 import { PageComponent } from './page.component';
 
 @Component({
-    moduleId: module.id,
     selector: 'pager',
     template: `
         <div>
