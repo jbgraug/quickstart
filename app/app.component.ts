@@ -9,6 +9,8 @@ import { PageComponent } from './components/page.component';
 import { PagerComponent } from './components/pager.component';
 import { TodoService } from './services/todo.service';
 
+import { Menu} from './composite/menu';
+
 @Component({
     selector: 'my-app',
     template: `
@@ -34,6 +36,15 @@ import { TodoService } from './services/todo.service';
             </pager>
         </tab>
      </tabs>
+     <hr>
+     <div *ngFor="let sub of menu.getChilds()"
+     (click)="menuClick(sub,$event)">
+     {{sub.name}}
+            <div *ngFor="let sub1 of sub.getChilds()"
+            (click)="menuClick(sub1,$event)">
+            {{sub1.name}}
+            </div>
+     </div>
     `,
     directives: [TodoListComponent, TodoComponent, Tabs, Tab, PageComponent, PagerComponent]
 })
@@ -44,8 +55,12 @@ export class AppComponent implements OnInit {
     private pageSize = 3;
     private pages: number;
     private pagedTodos: Array<Array<any>>;
+    private menu = new Menu();
 
-    constructor(private todoService: TodoService) { }
+    constructor(private todoService: TodoService) {
+        console.debug(JSON.stringify(this.menu));
+        this.menu.getChilds()[0].operation();
+    }
 
     ngOnInit() {
         this.getTodos();
@@ -54,13 +69,13 @@ export class AppComponent implements OnInit {
         let actualPage = 0;
         this.todos.forEach(t => {
             if (this.pagedTodos[actualPage].length < this.pageSize) {
-                this.pagedTodos[actualPage].push(t)
+                this.pagedTodos[actualPage].push(t);
             } else {
                 actualPage += 1;
-                this.pagedTodos[actualPage] = []
+                this.pagedTodos[actualPage] = [];
                 this.pagedTodos[actualPage].push(t);
             }
-        })
+        });
         console.log(this.pagedTodos);
     }
 
@@ -71,5 +86,10 @@ export class AppComponent implements OnInit {
     onSelected(todo: Todo) {
         console.log(todo);
         this.selectedTodo = todo;
+    }
+
+    menuClick(menuitem :any, event:Event){
+        menuitem.operation();
+        event.cancelBubble = true;
     }
 }
